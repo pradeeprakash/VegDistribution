@@ -26,7 +26,7 @@
 }
 .card1 {
 	width: 40%;
-	height: 50%
+	height: 50%;
 	text-align:center;
 	padding: 2%;
 	color: white;
@@ -60,6 +60,37 @@ background-color: #373d47;
 	<b>VARIETY2: </b><input type="number" name="v2"><br><br>
     <b>VARIETY3: </b><input type="number" name="v3"><br><br>
 	<input type="submit" class="btn btn-success" onclick="f('Amount changed successfully')" name="submit" value="Change">
+</form>
+  </div>
+  </div>
+</div><br>
+<br>
+<div class="container">
+  <button type="button" class="btn btn-primary"  data-toggle="collapse" data-target="#Stock">Stock</button>
+  <div id="Stock" class="collapse">
+     <div class="card1">
+  	<form action="Stock.php" method="post">
+	<b>SVARIETY1: </b><input type="number" name="s1"><br><br>
+	<b>SVARIETY2: </b><input type="number" name="s2"><br><br>
+    <b>SVARIETY3: </b><input type="number" name="s3"><br><br>
+	<input type="submit" class="btn btn-success" onclick="f('Stock changed successfully')" name="submit" value="Change">
+</form>
+  </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <button type="button" class="btn btn-primary"  data-toggle="collapse" data-target="#linecollector">linecollector</button>
+  <div id="linecollector" class="collapse">
+     <div class="card1">
+    <form action="linecollectorpass.php" method="post">
+  <b>ERODE-1: </b><input type="text" name="e1"><br><br>
+  <b>ERODE-2: </b><input type="text" name="e2"><br><br>
+    <b>ERODE-3: </b><input type="text" name="e3"><br><br>
+     <b>PALLIYAPALAYAM: </b><input type="text" name="pp"><br><br>
+     <b>SIVAGERI : </b><input type="text" name="sg"><br><br>
+  <input type="submit" class="btn btn-success" onclick="f('user setted successfully')" name="submit" value="Change">
 </form>
   </div>
   </div>
@@ -113,9 +144,5 @@ background-color: #373d47;
 </div>
   </center>
 
-
-<div class="footer">
-  <p>Footer</p>
-</div>
 </body>
 </html>

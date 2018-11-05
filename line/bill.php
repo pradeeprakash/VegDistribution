@@ -56,25 +56,28 @@ background-color: #373d47;
 	  <div class="card header">
     <div class="card-body text-center"><b><h3>ORDER</h3></b></div>
   </div>
-<div class="card text-center">
+<div class="card text-center price">
   <?php 
    $con=mysqli_connect('localhost:3306','root','','tomato');
+   session_start();
+   $l=$_SESSION["line"];
    $dat=date('Y-m-d');
    $sql="SELECT * FROM `variety_price` WHERE date='$dat'";
+
      if ($result=mysqli_query($con,$sql))
      {
         while ($row=mysqli_fetch_row($result))
        {  ?>
           
-        <h6 class="text-warning">Best Price: <span id="p1"><?php echo "$row[1]";?></span>Rs</h6>
-        <h6 class="text-warning">Middle Price:<span id="p2"><?php echo "$row[2]";?></span>Rs</h6>
-        <h6 class="text-warning">Worst Price: <span id="p3"><?php echo "$row[3]";?></span>Rs</h6>
+        <h6 class="text-warning">Best Price:&#8377;<span id="p1"><?php echo "$row[1]";?></span></h6>
+        <h6 class="text-warning">Middle Price:&#8377;<span id="p2"><?php echo "$row[2]";?></span></h6>
+        <h6 class="text-warning">Worst Price:&#8377;<span id="p3"><?php echo "$row[3]";?></span></h6>
         <?php
       }
     }
   ?>
 </div>
- <a href="linetable.php"><input type="button" class="btn btn-warning btn-md" name="back" value="<<Back"></a>
+ <a href="linetable.php"><input type="button" class="btn btn-warning btn-md" name="back" value="<<BACK"></a>
   <center>
     <h1 style="color: white"><?php $name=$_POST['text']; echo "$name";?></h1>
 
@@ -88,8 +91,10 @@ background-color: #373d47;
  </center>
  <span class="bi"></span>
  <center>
+ <div class="orderButton">
  <input type="button" id="bt" class="btn btn-primary" value="Preview">
 	<input type="submit" class="btn btn-primary" name="submit" value="order">
+  </div>
 </form>
   </div>
   </center>
@@ -99,5 +104,14 @@ background-color: #373d47;
 <div class="footer">
   <br>
 </div>
+<script>
+   var val=document.getElementsByClassName("price")[0].innerHTML;
+   if(val.length===3)
+   {
+    alert("enter the tomato price");
+   document.getElementsByClassName("card1")[0].style.display="none";
+   document.getElementsByClassName("orderButton")[0].style.display="none";
+   }
+  </script>
 </body>
 </html>

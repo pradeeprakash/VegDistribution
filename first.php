@@ -47,7 +47,7 @@
 </div>
 <br>
 <br>
-<div class="dropdown text-center">
+<!-- <div class="dropdown text-center">
   <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     Line Root
   </button>
@@ -55,7 +55,7 @@
     <a class="dropdown-item" href="table.php">Line 1</a>
     <a class="dropdown-item" href="table.php">Line 2</a>
     <a class="dropdown-item" href="table.php">Line 3</a>
-  </div>
+  </div> -->
 </div>
 </body>
 </html>

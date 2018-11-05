@@ -61,8 +61,16 @@
 </style>
 </head>
 <body>
+<?php 
+  $l="";
+  $sql1="";
+  session_start();
+ $con=mysqli_connect('localhost:3306','root','','tomato');
+
+         $l=$_SESSION["line"];
+         ?>
   <div class="card header1">
-    <div class="card-body text-center"><b><h6>LINE CUSTOMERS</h6></b></div>
+    <div class="card-body text-center"><b><h6><?php echo "<h6>".strtoupper($l)." LINE CUSTOMERS</h6>"?></h6></b></div>
   </div>
     <a href="logout.php"><input type="button" class="btn btn-success btn-md" name="back" value="<<Back"></a>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
@@ -73,21 +81,8 @@
     <th style="width:5%;"></th>
     <th style="width:5%;"></th>
   </tr>
-  <?php 
-  $l="";
-  $sql1="";
-  session_start();
- $con=mysqli_connect('localhost:3306','root','','tomato');
-       if(strlen($_SESSION["line"])>0)
-       {
-         $l=$_SESSION["line"];
-           // echo "string";
+ <?php
           $sql1="SELECT * FROM `customer` WHERE line='$l'";
-       }
-       else
-       {
-
-       }
        
        if ($result=mysqli_query($con,$sql1))
      {
@@ -96,7 +91,7 @@
         <tr>
          <td><?php echo "$row[0]";?>
          <?php echo "$row[1]";?></td>
-         <td><form action="bill.php" method="post"><input type="hidden" name="text" value=<?php echo "$row[0]";?>><input type="submit"  value="Order >" class="btn btn-warning"></form></td><td><form action="bendding.php" method="post"><input type="hidden" name="text" value=<?php echo "$row[0]";?>><input type="submit"  value="Bendding >" class="btn btn-warning"></form></td>
+         <td><form action="bill.php" method="post"><input type="hidden" name="text" value=<?php echo "$row[0]";?>><input type="submit"  value="Order >" class="btn btn-warning"></form></td><td><form action="bendding.php" method="post"><input type="hidden" name="text" value=<?php echo "$row[0]";?>><input type="submit"  value="pendding >" class="btn btn-warning"></form></td>
          </tr>
          <?php   
        }

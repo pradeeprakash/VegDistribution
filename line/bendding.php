@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pendding</title>
+	<title>Bendding</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -47,6 +47,8 @@
     <div class="container">
     <h1><?php $name=$_POST['text']; echo "$name";
     $con=mysqli_connect('localhost:3306','root','','tomato'); 
+    session_start();
+    $l=$_SESSION["line"];
     $sql="SELECT * FROM `bending` WHERE name='$name'";
           $dat=0;
           $bbox=0;
@@ -57,8 +59,8 @@
        { 
 
          $dat=$row[0];
-         $bbox=$row[2];
-         $bamount=$row[3];
+         $bbox=$row[3];
+         $bamount=$row[4];
 
        }
      }
@@ -72,13 +74,14 @@
     </h1>
     <div class="alert alert-danger">
       <h6>DATE:<b><?php  echo "$dat"; ?></b></h6>
-    <h6>BOX:<b><?php  echo "$bbox"; ?></b>  AMOUNT:<b><?php echo "$bamount"; ?></b>RS</h6>
+    <h6>BOX:<b><?php  echo "$bbox"; ?></b>  AMOUNT:&#8377;<b><?php echo "$bamount"; ?></b></h6>
     </div>
   	  <div class="card1">
   	<form action="bendding1.php" method="post">
     <input type="hidden" name="tex" value=<?php echo "$name";?>>  
 	<b>BOX COUNT: </b><input type="number" name="box"><br><br>
 	<b>AMOUNT:  </b><input type="number" name="amount"><br><br>
+  <b>DISCOUNT:  </b><input type="number" name="discount"><br><br>
 	<input type="submit" onclick="f()" class="btn btn-primary" name="submit"  value="Receive">
 </form>
   </div>
